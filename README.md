@@ -1,6 +1,12 @@
 # Bootloader
 
-A resource for server bootloading and resource keep-alive for a Multi Theft Auto server. Bootloading in the context of a MTA:SA server means this resource will start pre-configured resources in an undefined order. Furthermore, this bootloader will also keep pre-configured resources alive by checking the resource state with a timer - this behavior can be disabled. The act of enabling or disabling a resource in the bootloader is logged by the server. This resource is production-ready and can be used as-is.
+A resource for server bootloading and resource keep-alive for a Multi Theft Auto server.
+
+Bootloading in the context of a MTA:SA server means this resource will start pre-configured resources in an undefined order. Furthermore, this bootloader will also keep pre-configured resources alive by checking the resource state with a timer - this behavior can be disabled.
+
+The act of enabling or disabling a resource in the bootloader is logged by the server.
+
+This resource is production-ready and can be used as-is.
 
 ## Installation
 
@@ -20,7 +26,7 @@ If your MTA:SA server is already running, you must execute the `/refresh` comman
 
 This resource has two ACL requests and it will __NOT__ work without these permissions, since they're essential to the functionality. This resource needs access to **startResource** and **stopResource** functions to start and stop other resources, respectively. You can grant these permissions with the command: `/aclrequest allow bootloader all`
 
-For administrators to open the GUI configuration panel, they must be granted the permission to use the ACL right `command.bootloader`. You can do this either by manually editing your ACL.xml __AND__ executing `/reloadacl` on the server or by adding the right to the **Admin** ACL through the admin panel **Resources** tab.
+To allow administrators to open the GUI configuration panel, they must be granted the permission to use the ACL right `command.bootloader`. You can do this either by manually editing your ACL.xml __AND__ executing `/reloadacl` on the server or by adding the right to the **Admin** ACL through the admin panel **Resources** tab.
 
 This resource is meant to be put into your **mtaserver.conf** like this:
 ```xml
@@ -44,9 +50,11 @@ The bootloader exposes a few resource-level settings, which you can set manually
 | \*showMaps       | Display map resources in the GUI                   |
 | \*showRaceAddons | Display race addon resources in the GUI            |
 
+**NOTE:** The bootloader stores the list of enabled resources in the server's **settings.xml** file. It uses the key `@resources` and the value is a list of enabled resource names concatenated by a comma `,` character.
+
 ## Usage
 
-You open the bootloader configuration with the `/bootloader` command. You can easily bind this command to any key (example: `/bind f4 bootloader`).
+You open the bootloader configuration window with the `/bootloader` command. You can easily bind this command to any key (example: `/bind f4 bootloader`).
 
 The configuration panel will receive the resource list in batches from the server (indicated by the loading spinner in the window title) to avoid hanging either the server or client. You can use the panel before the loading finishes.
 
@@ -81,4 +89,4 @@ By disabling a resource, the server will automatically stop the resource.
 
 ## License
 
-Licensed under the [MIT](LICENSE.txt) license.
+Licensed under the [MIT](LICENSE) license.
