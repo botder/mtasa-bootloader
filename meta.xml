@@ -1,0 +1,33 @@
+<meta>
+    <info name="Bootloader" author="botder" version="1.0.0" type="script" description="Bootloader for resources (with a configuration panel)"/>
+    <file src="dot.bmp"/>
+    <file src="status.png"/>
+    <script type="server" src="server.lua"/>
+    <script type="client" src="client.lua"/>
+    <aclrequest>
+        <right name="function.startResource" access="true"/>
+        <right name="function.stopResource" access="true"/>
+    </aclrequest>
+    <settings>
+        <setting name="*keepAlive" value="true"
+                 friendlyname="Keep Alive"
+                 accept="true,false"
+                 group="Bootloader"
+                 desc="Every 10 minutes, check if enabled resources are running and start those, which are stopped"/>
+        <setting name="*showGamemodes" value="false"
+                 friendlyname="Show gamemode resources"
+                 accept="true,false"
+                 group="Bootloader"
+                 desc="Display gamemode resources in the bootloader configuration"/>
+        <setting name="*showMaps" value="false"
+                 friendlyname="Show map resources"
+                 accept="true,false"
+                 group="Bootloader"
+                 desc="Display map resources in the bootloader configuration"/>
+        <setting name="*showRaceAddons" value="false"
+                 friendlyname="Show race addon resources"
+                 accept="true,false"
+                 group="Bootloader"
+                 desc="Display race addon resources in the bootloader configuration"/>
+    </settings>
+</meta>

@@ -1,0 +1,5 @@
+* text=auto eol=lf
+
+# Ignored files by `git archive`
+/.github           export-ignore
+/.gitattributes    export-ignore
